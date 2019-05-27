@@ -1,0 +1,16 @@
+package com.springboot.camel.processor;
+
+import org.apache.camel.Exchange;
+import org.apache.camel.Processor;
+import org.springframework.http.HttpStatus;
+
+public class HelloProcessor implements Processor {
+
+	@Override
+	public void process(Exchange exchange) throws Exception {
+	
+		final String body= exchange.getIn().getBody(String.class);
+		exchange.getOut().setBody("Hello from camel processed message! Received payload: " + body);
+		exchange.getOut().setHeader(Exchange.HTTP_RESPONSE_CODE, HttpStatus.ACCEPTED);
+	}
+}

@@ -1,0 +1,13 @@
+package serialization;
+
+import java.io.Serializable;
+
+public class SingletonClass implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private static SingletonClass INSTANCE = null;
+
+}
